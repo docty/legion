@@ -6,10 +6,10 @@ An app for voting on behalf of Sesi Technologies supporters who have opted in fo
 
 ##### Prerequisites
 
-The setups steps expect following tools installed on the system.
+The setup steps expect following tools installed on the system.
 
-- Git
-- Pipenv
+- [Git](https://git-scm.com/)
+- [Pipenv](https://docs.pipenv.org/en/latest/)
 
 ##### 1. Check out the repository
 
