@@ -19,12 +19,19 @@ def fetch_capture_text_using_service(captcha_file, anticaptcha_service_key):
         captcha_text
             The text in the captcha image
      """
+    print('Sending capture to Anticaptcha service...')
 
-    captcha_text = ImageToTextTask \
+    response = ImageToTextTask \
         .ImageToTextTask(anticaptcha_key=anticaptcha_service_key) \
         .captcha_handler(captcha_file=captcha_file)
-    print('Captcha service returned', captcha_text)
-    return captcha_text
+
+    if response['errorId'] == 0:
+        captcha_text = response['solution']['text']
+        print('Captcha service returned:', captcha_text)
+        return captcha_text
+    else:
+        print('Error solving captcha', response)
+        return ''
 
 
 def fetch_captcha_text_manually(captcha_file):
